@@ -5,7 +5,7 @@ designed for building enterprise-level Java applications.
 This recipe aims to showcase basic Spring concepts and how to integrate them with [Zerops](https://zerops.io),
 all through a simple file upload demo application.
 
-![spring](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-spring.svg)
+![spring-cover](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-spring.svg)
 
 <br/>
 
