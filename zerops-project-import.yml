@@ -27,6 +27,7 @@ services:
     type: object-storage
     priority: 10
     objectStoragePolicy: public-read
+    objectStorageSize: 2
 
   - hostname: adminer
     type: php-apache@8.1

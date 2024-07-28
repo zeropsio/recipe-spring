@@ -30,6 +30,11 @@ public class FileController {
         this.emailService = emailService;
     }
 
+    @GetMapping("/file")
+    public Iterable<File> getFiles() {
+        return this.fileRepository.findAll();
+    }
+
     @PostMapping("/file")
     public File uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         var fileEntity = new File();
@@ -65,10 +70,5 @@ public class FileController {
         );
 
         return fileEntity;
-    }
-
-    @GetMapping("/file")
-    public Iterable<File> getFiles() {
-        return this.fileRepository.findAll();
     }
 }
