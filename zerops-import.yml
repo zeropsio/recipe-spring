@@ -1,0 +1,39 @@
+project:
+  name: recipe-spring
+  tags:
+    - zerops-recipe
+    - spring
+services:
+  - hostname: api
+    type: java@21
+    priority: 5
+    buildFromGit: https://github.com/zeropsio/recipe-spring
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      minRam: 1
+    maxContainers: 1
+
+  - hostname: app
+    type: static
+    buildFromGit: https://github.com/zeropsio/recipe-backend-ui
+    enableSubdomainAccess: true
+
+  - hostname: db
+    type: postgresql@16
+    priority: 10
+    mode: NON_HA
+
+  - hostname: storage
+    type: object-storage
+    priority: 10
+    objectStoragePolicy: public-read
+
+  - hostname: adminer
+    type: php-apache@8.1
+    buildFromGit: https://github.com/zeropsio/recipe-adminer
+    enableSubdomainAccess: true
+
+  - hostname: mailpit
+    type: go@1
+    buildFromGit: https://github.com/zeropsio/recipe-mailpit
+    enableSubdomainAccess: true

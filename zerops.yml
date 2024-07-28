@@ -1,0 +1,25 @@
+zerops:
+  - setup: api
+    build:
+      base: java@21
+      buildCommands:
+        - ./mvnw clean install --define maven.test.skip
+      deployFiles:
+        - ./target/api.jar
+    run:
+      base: java@21
+      ports:
+        - port: 8080
+          httpSupport: true
+      envVariables:
+        DB_HOST: db
+        DB_PORT: $db_port
+        DB_USER: $db_user
+        DB_PASSWORD: $db_password
+        S3_ENDPOINT: $storage_apiUrl
+        S3_BUCKET: $storage_bucketName
+        S3_ACCESS_KEY: $storage_accessKeyId
+        S3_SECRET_KEY: $storage_secretAccessKey
+        MAIL_HOST: mailpit
+        MAIL_PORT: "1025"
+      start: java -jar target/api.jar
